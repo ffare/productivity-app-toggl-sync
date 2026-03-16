@@ -5,10 +5,13 @@ let start = 0;
 let savedTime = 0;
 
 clockButton.addEventListener("click", () => {
+    if (!clockButton.classList.contains(".started")) {
+        clockButton.setAttribute("data-time-start", Date.now());   // Store where the timer have started
+        clockButton.classList.toggle(".started");
+    }
     clockButton.classList.toggle(".clicked");
-
     start = Date.now() - start;    
-    clockButton.setAttribute("data-start", Date.now());
+    if (!clockButton.classList.contains(".clicked")) { clockButton.setAttribute("data-time-saved", start); }
 })
 
 
