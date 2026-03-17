@@ -18,7 +18,7 @@ clockButtons.forEach((clockButton) => {
 function updateTimer(clockButton, hours, minutes, seconds, milliSeconds) {
     const timeCurrent = clockButton.querySelector(".clock-button__time-current");
     if (clockButton.classList.contains(".clicked")) {
-        timeCurrent.textContent = `${minutes}:${seconds}.${milliSeconds}`;
+        timeCurrent.textContent = `${hours}:${minutes}:${seconds}.${milliSeconds}`;
         clockButton.setAttribute("data-time-current", delta);
     }    
 }
