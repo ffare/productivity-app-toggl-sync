@@ -11,37 +11,60 @@
     <div class="wrapper">
       <section class="nav-bar"></section>
       <section class="main">
-        <div class="clock-button">
+        <div id="Work" data-time-total="115200000" class="clock-button">          
+          <div class="bar"></div>
           <h2 class="clock-button__text">
             WORK
           </h2>
+          <div class="clock-button__edit-overlay">
+            <a class="resume-button"><img src="./assets/images/play-button-arrowhead.png"></a>
+            <a class="reset-button"><img class="reset-button" src="./assets/images/undo.png"></a>
+          </div>
           <div class="clock-button__time-current">00:00.0</div>
-          <div class="clock-button__time-remaining"></div>
+          <div class="clock-button__time-remaining">32:00</div>          
         </div>
-        <div class="clock-button">
+        <div id="Entertainment" data-time-total="115200000" class="clock-button">
+          <div class="bar"></div>
           <h2 class="clock-button__text">
-            WORK
+            ENTERTAINMENT
           </h2>
+          <div class="clock-button__edit-overlay">
+            <a class="resume-button"><img src="./assets/images/play-button-arrowhead.png"></a>
+            <a class="reset-button"><img class="reset-button" src="./assets/images/undo.png"></a>
+          </div>
           <div class="clock-button__time-current">00:00.0</div>
-          <div class="clock-button__time-remaining"></div>
+          <div class="clock-button__time-remaining">18:00</div>
         </div>
-        <div class="clock-button">
+        <div id="Social" data-time-total="115200000" class="clock-button">
+          <div class="bar"></div>
           <h2 class="clock-button__text">
-            WORK
+            SOCIAL
           </h2>
+          <div class="clock-button__edit-overlay">
+            <a class="resume-button"><img src="./assets/images/play-button-arrowhead.png"></a>
+            <a class="reset-button"><img class="reset-button" src="./assets/images/undo.png"></a>
+          </div>
           <div class="clock-button__time-current">00:00.0</div>
-          <div class="clock-button__time-remaining"></div>
+          <div class="clock-button__time-remaining">18:00</div>
         </div>
-        <div class="clock-button">
+        <div id="OTHER" data-time-total="115200000" class="clock-button">
+          <div class="bar"></div>
           <h2 class="clock-button__text">
-            WORK
+            GIF
           </h2>
+          <div class="clock-button__edit-overlay">
+            <a class="resume-button"><img src="./assets/images/play-button-arrowhead.png"></a>
+            <a class="reset-button"><img class="reset-button" src="./assets/images/undo.png"></a>
+          </div>
           <div class="clock-button__time-current">00:00.0</div>
-          <div class="clock-button__time-remaining"></div>
+          <div class="clock-button__time-remaining">18:00</div>
         </div>
+        
       </section>
     </div>
 
-    <script src="script.js"></script>
+    <script src="./assets/scripts/timer.js"></script>
+    <script src="./assets/scripts/bar.js"></script>
+    <script src="./assets/scripts/toggl.js"></script>
 </body>
 </html>

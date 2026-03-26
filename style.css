@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Unica+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300..800&family=Lexend+Giga:wght@100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
     --font-main: "Space Grotesk", sans-serif;
+    --font-secondary: "Lexend Giga", sans-serif;
 
     --color-text: #dee9ee;
     --color-primary: #a3c1cf;
@@ -41,16 +44,99 @@ body {
     align-items: center;
 }
 
+
 .clock-button {
+    position: relative;
     display: flex;
-    background-color: var(--color-primary);
+    background-color: hsl(from var(--color-primary) h s calc(l - 25));
     width: 100%;
     padding: .5rem 1rem;
     margin-bottom: 1rem;
+    z-index: 1;
 }
 
+.bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-primary);
+    box-shadow: 2px 0 2px 0px rgba(255, 255, 255, 1);
+    z-index: -1;
+}
+
+
+.clock-button__text {
+    font-size: 1.4rem;
+    max-inline-size: 30%;
+    overflow: hidden;  
+    margin-bottom: 1rem;
+}
+
+.clock-button__edit-overlay {    
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    background-color: rgb(255, 255, 255, 0.1);
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    backdrop-filter: blur(2px);
+    z-index: 2;
+}
+
+.clock-button__edit-overlay img {
+    display: block;
+    max-width: 32px;
+}
+
+.clock-button__edit-overlay .reset-button img {
+    display: block;
+    max-width: 38px;
+    /* margin-bottom: -2px; */
+}
+
+.started .clock-button__edit-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.started .clock-button__edit-overlay .reset-button:hover {
+    cursor: pointer;
+}
+
+.clicked .clock-button__edit-overlay {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
 .clock-button__time-current {
+    font-size: 1rem;
+    font-style: italic;
     margin-left: auto;
     font-variant-numeric: tabular-nums;
-    letter-spacing: .4rem;
+    letter-spacing: .2rem;
+    text-shadow: 0px 1px 0px white;
+    
 }
+
+.clock-button__time-remaining {
+    font-family: var(--font-secondary);
+    font-variant-numeric: tabular-nums;
+    color: white;
+    /* font-style: italic; */
+    font-size: 2.5rem;
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    filter: blur(1px);
+}
+

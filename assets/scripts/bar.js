@@ -16,7 +16,7 @@ function getTotalHours(clockButton) {
 }
 
 function getNewWidth(bar) {
-    let timeTotal = convertTime(bar.parentElement.dataset.timeTotal) || 1;
+    let timeTotal = bar.parentElement.dataset.timeTotal || 1;
     let timeCurrent = bar.parentElement.dataset.timeCurrent || 0;
 
     return (timeTotal - timeCurrent)*100/timeTotal;
