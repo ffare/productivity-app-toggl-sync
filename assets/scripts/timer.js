@@ -3,8 +3,13 @@ const clockButtons = document.querySelectorAll(".clock-button");
 const timerSpeed = 1;
 
 
-// Click events
 clockButtons.forEach((clockButton) => {
+    // Initialise total time
+    const description = clockButton.getAttribute("id");
+    const timeTotal = localStorage.getItem(description) || localStorage.getItem(`${description}Default`);
+    clockButton.setAttribute("data-time-total", timeTotal);
+
+    // Handle click events
     clockButton.addEventListener("click", () => {
         let start = 0;
         if (!clockButton.classList.contains("started")) {
@@ -12,12 +17,15 @@ clockButtons.forEach((clockButton) => {
             clockButton.classList.toggle("started");
         }
 
-        // Toggle clock for Toggl
+        // Toggle clock for Toggl        
         if (clockButton.classList.contains("clicked")) {
             stopToggleTimeEntry();
+            const newTimeTotal = clockButton.dataset.timeTotal - clockButton.dataset.timeCurrent;
+            localStorage.setItem(description, newTimeTotal);
+            console.log(newTimeTotal);
+            // console.log(`${description}:${clockButton.dataset.timeTotal}`);
         }
-        else {
-            const description = clockButton.getAttribute("id");
+        else {            
             postToggl(description);
         }
 
@@ -32,9 +40,8 @@ clockButtons.forEach((clockButton) => {
 // For the reset functionality
 const editOverlays = document.querySelectorAll(".clock-button__edit-overlay");
 editOverlays.forEach((editOverlay) => {
-    
-
     const resetButton = editOverlay.querySelector(".reset-button");
+
     resetButton.addEventListener("click", (e) => {
         // update Total Timer
         const timeCurrent = editOverlay.closest(".clock-button").dataset.timeCurrent;
